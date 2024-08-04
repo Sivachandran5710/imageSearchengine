@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #78c1f3;
+    min-height: 100vh;
+}
+
+ul,
+li {
+    list-style: none;
+    color: #000;
+}
+
+li {
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+}
+
+i {
+    color: #000;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.container .search {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .search img {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.container .search .inputArea {
+    color: #fff;
+    text-align: center;
+    width: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+.container .search .inputArea .searchBox {
+    height: 55px;
+    margin: 15px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.container .search .inputArea .searchBox #searchText {
+    width: 80%;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding: 15px;
+    font-size: 22px;
+}
+
+.fa-magnifying-glass {
+    width: 55px;
+    color: #000; /* Add color to match your design */
+}
+
+.dropDown {
+    max-width: 13em;
+    position: relative;
+    width: 150px;
+}
+
+.dropDown-btn {
+    color: #000;
+    font-size: 18px;
+    width: 100%;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7em 0.5em;
+    cursor: pointer;
+}
+
+.arrow {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #000;
+    transition: transform ease-in-out 0.3s;
+}
+
+.dropDown-content {
+    position: absolute;
+    top: 3.1em;
+    width: 100%;
+    visibility: hidden;
+    transform: translateY(-1em);
+    transition: transform ease 0.3s;
+}
+
+input[type="checkbox"]:checked ~ .dropDown-content {
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropDown-content li {
+    background: #fff;
+    border-radius: 0.5em;
+    padding: 0.7em 0.5em;
+    margin: 0.1em 0;
+    align-items: center;
+}
+
+input[type="checkbox"]:checked + label > .arrow {
+    transform: rotate(180deg);
+}
+
+input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+}
+
+#dropdownSelectValue {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.gallery{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 10px ;
+}
+
+.gallery .items{
+    gap: 15px;
+    min-width: 95%;
+    margin-top: 40px;
+    columns: 5 340px;
+    text-align: center;
+}
+ .gallery .card{
+    display: flex;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 14px;
+    border-radius: 5px;
+ }
+
+ .gallery .card img,
+ .gallery .card video{
+    width :100%;
+    z-index: 2;
+    position: relative;
+ }
+
+ button,i{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+ }
+ .loadMore{
+    color: #78c1f3;
+    background: #fff;
+    margin: 50px 0;
+    font-size: 1rem;
+    padding: 15px 25px;
+ }
+
+ .items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust spacing between items */
+    justify-content: center;
+}
+
+.card img, .card video {
+    width: 200px; /* Adjust width as needed */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 5px; /* Optional: adds rounded corners */
+}
+
+.card {
+    flex: 1 1 calc(20% - 10px); /* Adjust percentage for desired width */
+    box-sizing: border-box;
+    margin: 5px; /* Adjust margin as needed */
+}
+
+.notFound {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+.notFound i {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.notFound h1, .notFound h2, .notFound p {
+    margin: 10px 0;
+}
+
+.gallery .card:hover .details {
+    bottom: 0;
+}
+.gallery .items .details {
+    position: absolute;
+    z-index: 4;
+    width: 100%;
+    bottom: -100px;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    justify-content: space-between;
+    transition: bottom 0.1s ease;
+    background: linear-gradient(to top, rgba(75, 207, 181, 0.7),transparent);
+}
+
+.gallery .items .photographer {
+    color: #fff;
+}
+.gallery .items .photographer button{
+    background: #fff;
+    font-size: 1.1rem;
+    padding: 3px 8px;
+}
+
+.popupView {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.popupView.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popupView .wrapper {
+    max-width: 80%;
+    max-height: 80%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.popupView .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.popupView .details .photographer {
+    display: flex;
+    align-items: center;
+}
+
+.popupView .details .photographer i {
+    margin-right: 5px;
+}
+
+.popupView .details button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.popupView .previewItem img,
+.popupView .previewItem video {
+    max-width: 100%;
+    max-height: 80vh; /* Constrain the image height */
+    width: auto;
+    height: auto;
+}
